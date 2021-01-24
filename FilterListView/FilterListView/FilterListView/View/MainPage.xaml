@@ -4,16 +4,11 @@
              xmlns:local="clr-namespace:Swiping"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
-             xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
              x:Class="Swiping.MainPage">
 
     <ContentPage.Behaviors>
         <local:ContentPageBehavior/>
     </ContentPage.Behaviors>
-    
-    <ContentPage.BindingContext>
-        <local:ListViewSwipingViewModel x:Name="viewModel" />
-    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -247,9 +242,8 @@
                         </RowDefinition>
                     </Grid.RowDefinitions>
                     <syncfusion:SfListView x:Name="firstLV" Grid.Row="0" 
-                                     ItemsSource="{Binding FirstLVCollection}" 
                                      SelectionMode="Single"
-                                     ItemSize="80"
+                                     ItemSize="80" IsScrollingEnabled="False"
                                      ItemTemplate="{StaticResource pinnedItemTemplate}">
 
                         <syncfusion:SfListView.Behaviors>
@@ -262,8 +256,8 @@
                             Command="{Binding BindingContext.ResetTapCommand,Source={x:Reference Name=secondLV}}" CommandParameter="{Binding .}"/>
 
                     <syncfusion:SfListView x:Name="secondLV" Grid.Row="2" BackgroundColor="AliceBlue" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-                                     ItemsSource="{Binding SecondLVCollection}" ItemTemplate="{StaticResource ItemTemplate}"                                      
-                                     AllowSwiping="True" 
+                                     ItemTemplate="{StaticResource ItemTemplate}"                                      
+                                     AllowSwiping="True"
                                      SelectionMode="None" SwipeOffset="120"
                                      ItemSize="80">
                         <syncfusion:SfListView.LeftSwipeTemplate>
