@@ -27,7 +27,7 @@ namespace Swiping
             secondLV.BindingContext = viewModel;
             button.BindingContext = viewModel;
             firstLV.ItemsSource = viewModel.FirstLVCollection;
-            firstLV.ItemsSource = viewModel.SecondLVCollection;
+            secondLV.ItemsSource = viewModel.SecondLVCollection;
 
             viewModel.firstLV = firstLV;
             viewModel.secondLV = secondLV;
